@@ -4,7 +4,7 @@ from faster_whisper import WhisperModel
 model = WhisperModel("small",device="cpu", compute_type="int8")
 
 SAMPLE_RATE = 16000
-DURATION = 10
+DURATION = 8
 
 print("Speak...")
 
