@@ -1,11 +1,11 @@
 import sounddevice as sd
 from faster_whisper import WhisperModel
+from agent import Agent
 
 model = WhisperModel("small",device="cpu", compute_type="int8")
-
 SAMPLE_RATE = 16000
 DURATION = 8
-
+bot=Agent()
 print("Speak...")
 
 audio = sd.rec(
@@ -27,3 +27,4 @@ segments, info = model.transcribe(
 text = "".join(segment.text for segment in segments).strip()
 
 print("You said:", text)
+bot.text_to_agent(text)
